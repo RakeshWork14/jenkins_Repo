@@ -1,0 +1,20 @@
+// timeout pipeline
+
+pipeline{
+    agent{
+        label 'java-slave-label'
+    }
+    stages{
+        stage('timeout'){
+            steps{
+                echo "***** timeout error *****"
+
+                timeout(time: 5, unit: 'SECONDS'){
+                    echo "*** before timeout ***"
+                    sleep 60
+                    echo "*** After Timeout ***"
+                }
+            }
+        }
+    }
+}
