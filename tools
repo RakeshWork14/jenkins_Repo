@@ -1,8 +1,6 @@
 // tools
 pipeline{
-    agent {
-        label 'java-slave-label'
-    }
+    agent any
     tools {
         maven 'maven-3.9.9'
     }
@@ -13,6 +11,9 @@ pipeline{
             }
         }
         stage('java'){
+           agent {
+        label 'java-slave-label'
+    }
             tools{
                 jdk 'JDK'
             }
