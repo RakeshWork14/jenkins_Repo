@@ -4,7 +4,7 @@ pipeline{
         label 'java-slave-label'
     }
     tools {
-        maven 'MAVEN_PATH'
+        maven 'maven-3.9.9'
     }
     stages{
         stage('maven'){
