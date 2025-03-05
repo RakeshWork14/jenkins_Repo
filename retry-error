@@ -1,6 +1,8 @@
 pipeline{
-    agent 'java-slave-label'
-    stages{
+    agent {
+      label 'java-slave-label'
+    }
+stages{
         stage('error-retry'){
             steps{
                 echo "*** executing error & Timeout***"
