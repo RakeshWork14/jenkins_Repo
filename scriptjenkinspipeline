@@ -1,0 +1,26 @@
+// scripted pipeline under steps
+pipeline{
+    agent none
+    stages{
+        stage('maven'){
+            echo "*** maven build ****"
+        }
+        stage('script'){
+            agent{
+                label 'java-slave-label'
+            }
+            steps{
+                echo "*** scripted line ***"
+                script{
+                    def course = "k8s"
+                    if (course == "k8s"){
+                        println("Thanks for enrolling $course")
+                    }else{
+                        println ("Try to enroll")
+                    }
+
+                }
+            }
+        }
+    }
+}
