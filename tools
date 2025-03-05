@@ -1,0 +1,25 @@
+// tools
+pipeline{
+    agent {
+        label 'java-slave-label'
+    }
+    tools {
+        maven MAVEN_PATH
+    }
+    stages{
+        stage('maven'){
+            steps{
+                sh "mvn --version"
+            }
+        }
+        stage('java'){
+            tools{
+                jdk 'JDK'
+            }
+            steps{
+                sh "mvn --version"
+
+            }
+        }
+    }
+}
