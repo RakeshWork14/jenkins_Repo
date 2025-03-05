@@ -1,0 +1,15 @@
+pipeline{
+    agent 'java-slave-label'
+    stages{
+        stage('error-retry'){
+            steps{
+                echo "*** executing error & Timeout***"
+                retry(3){
+                    echo "*** retrying ***"
+                    error "retry failed"
+                }
+
+            }
+        }
+    }
+}
