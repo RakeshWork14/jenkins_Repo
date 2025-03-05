@@ -1,0 +1,12 @@
+// just sleep for 60 sec
+pipeline{
+    agent any
+    stages{
+        stage('sleep'){
+          steps{
+            echo "*** Executing the sleep ****"
+            sleep 60
+          }
+        }
+    }
+}
