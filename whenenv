@@ -10,7 +10,7 @@ pipeline{
     stages{
         stage('dev'){
             when{
-                environment name= "deployment", value= "dev"
+                environment name: "deployment", value: "dev"
             }
             steps{
               echo "dev deployment"
@@ -18,7 +18,7 @@ pipeline{
         }
         stage('qa'){
             when{
-                environment name= "deployment", value= "qa"
+                environment name: "deployment", value: "qa"
             }
             steps{
                 echo "qa deployment"
@@ -26,7 +26,7 @@ pipeline{
         }
         stage('prod'){
             when{
-                environment name= "deployment", value= "prod"
+                environment name: "deployment", value: "prod"
             }
             steps{
                 echo "prod deployment"
