@@ -1,0 +1,36 @@
+// environment based when deployments
+
+pipeline{
+    agent {
+        label 'java-label'
+    }
+    environment{
+        deployment = "dev"
+    }
+    stages{
+        stage('dev'){
+            when{
+                environment name= "deployment", value= "dev"
+            }
+            steps{
+              echo "dev deployment"
+        }
+        }
+        stage('qa'){
+            when{
+                environment name= "deployment", value= "qa"
+            }
+            steps{
+                echo "qa deployment"
+            }
+        }
+        stage('prod'){
+            when{
+                environment name= "deployment", value= "prod"
+            }
+            steps{
+                echo "prod deployment"
+            }
+        }
+    }
+}
